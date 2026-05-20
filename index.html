@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Rizki Fahrizal Kurniawan</title>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome (Icon) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Prism CSS for Syntax Highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <!-- Main Style -->
+    <link rel="stylesheet" href="css/style.css?v=3">
+    <link rel="stylesheet" href="css/features.css?v=3">
+</head>
+
+<body>
+    <!-- FLAG{inspector_gadget_1337} - Selamat, Anda menemukan flag pertama! -->
+
+    <!-- Toast Notification untuk Easter Egg -->
+    <div id="toast-container"></div>
+
+    <!-- Background Efek Partikel -->
+    <div id="particles-js"></div>
+
+    <!-- Theme Switcher Container -->
+    <div class="theme-switcher-container">
+        <div class="theme-icon"><i class="fas fa-palette"></i></div>
+        <div class="theme-switcher">
+            <div class="theme-btn" data-color="#00ffcc" style="background: #00ffcc;" title="Neon Green"></div>
+            <div class="theme-btn" data-color="#00ffff" style="background: #00ffff;" title="Cyber Blue"></div>
+            <div class="theme-btn" data-color="#b829ff" style="background: #b829ff;" title="Synth Purple"></div>
+            <div class="theme-btn" data-color="#ff3366" style="background: #ff3366;" title="Matrix Red"></div>
+            <div class="theme-btn" data-color="#ff6a00" style="background: linear-gradient(135deg, #ff8a00, #e52e71);"
+                title="Sunset Orange"></div>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header>
+        <nav class="navbar navbar-expand-lg fixed-top glass-panel"
+            style="border-radius: 0; border-bottom: 1px solid var(--glass-border) !important; padding: 10px 0;">
+            <div class="container-xl">
+                <a class="navbar-brand d-flex align-items-center gap-3 logo m-0 p-0" href="#">
+                    <img src="images/rizki.jpg" alt="Profile" class="profile-pic">
+                    <span class="fs-4">Rizki</span>
+                </a>
+                <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <i class="fas fa-bars text-primary fs-3"></i>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end mt-3 mt-lg-0" id="navbarNav">
+                    <ul class="navbar-nav gap-2 gap-lg-4 align-items-lg-center nav-links m-0 p-0">
+                        <li class="nav-item"><a class="nav-link" href="#home">Beranda</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#about">Tentang</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#ide">Program</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#education">Pendidikan</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#activities">Aktivitas</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#projects">Proyek</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#games">Arcade</a></li>
+                        <li class="nav-item mt-2 mt-lg-0">
+                            <a href="#" id="hacker-toggle"
+                                class="btn btn-outline btn-sm rounded-pill px-3 py-2 w-100 w-lg-auto d-inline-flex align-items-center justify-content-center gap-2">
+                                <i class="fas fa-terminal"></i> CRT Mode
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        <!-- HERO SECTION -->
+        <section id="home" class="hero min-vh-100 d-flex align-items-center">
+            <div class="container-xl position-relative z-1 pt-5 pt-lg-0">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-7 text-center text-lg-start">
+                        <div class="d-inline-flex align-items-center gap-2 px-3 py-2 rounded-pill glass-panel mb-4">
+                            <span class="spinner-grow spinner-grow-sm text-primary" role="status"></span>
+                            <span class="sys-msg m-0 fw-semibold text-light">Sistem berhasil dijalankan...</span>
+                        </div>
+                        <h1 class="glitch display-4 fw-bolder mb-3" data-text="Selamat Datang di Portofolio Saya">
+                            Selamat Datang di Portofolio Saya
+                        </h1>
+                        <div class="typing-container fs-5 mb-5 text-light opacity-75">
+                            <span id="typed-text">portofolio rizki — web developer & cyber security</span><span
+                                class="cursor">&nbsp;</span>
+                        </div>
+                        <div
+                            class="action-btns d-flex flex-column flex-sm-row justify-content-center justify-content-lg-start gap-3">
+                            <a href="#ide" class="btn btn-primary rounded-pill px-5 py-3 fw-bold shadow-lg">
+                                <i class="fas fa-code me-2"></i> Bikin Program
+                            </a>
+                            <a href="#projects" class="btn btn-outline rounded-pill px-5 py-3 fw-bold">
+                                <i class="fas fa-project-diagram me-2"></i> Lihat Proyek
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 d-none d-lg-flex justify-content-center position-relative">
+                        <div class="position-relative" style="width: 350px; height: 350px;">
+                            <div class="glass-panel w-100 h-100 rounded-circle d-flex align-items-center justify-content-center"
+                                style="box-shadow: 0 0 60px rgba(0,255,204,0.15); animation: float 6s ease-in-out infinite;">
+                                <i class="fas fa-shield-alt text-primary"
+                                    style="font-size: 8rem; filter: drop-shadow(0 0 20px var(--primary));"></i>
+                            </div>
+                            <div class="glass-panel position-absolute top-0 start-0 p-3 rounded-4 shadow-lg"
+                                style="animation: float 4s ease-in-out infinite reverse; transform: translate(-20%, 20%);">
+                                <i class="fab fa-html5 text-danger fs-2"></i>
+                            </div>
+                            <div class="glass-panel position-absolute bottom-0 end-0 p-3 rounded-4 shadow-lg"
+                                style="animation: float 5s ease-in-out infinite; transform: translate(20%, -20%);">
+                                <i class="fab fa-js text-warning fs-2"></i>
+                            </div>
+                            <div class="glass-panel position-absolute top-100 start-50 p-3 rounded-4 shadow-lg"
+                                style="animation: float 4.5s ease-in-out infinite reverse; transform: translate(-50%, -50%);">
+                                <i class="fab fa-php text-info fs-2"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section id="about" class="section">
+            <h2 class="section-title"><span>01.</span> Tentang Saya</h2>
+            <div class="about-container">
+                <div class="about-text glass-panel">
+                    <div class="panel-header">
+                        <div class="panel-dots">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <span class="panel-title">profil.txt</span>
+                    </div>
+                    <div class="panel-body">
+                        <p class="cmd">> Menjalankan sistem profil...</p>
+
+                        <div class="row align-items-center">
+                            <div class="col-lg-4 text-center mb-4 mb-lg-0 about-profile">
+                                <img src="images/rizki.jpg" alt="Rizki Fahrizal Kurniawan" class="about-pic img-fluid">
+                            </div>
+                            <div class="col-lg-8 about-desc">
+                                <p>Halo, saya <strong>Rizki Fahrizal Kurniawan</strong>, seorang mahasiswa dan Web
+                                    Developer yang memiliki minat besar dalam dunia teknologi, terutama pengembangan
+                                    website dan cyber security.</p>
+                                <p>Saya senang membuat website yang modern, responsif, dan interaktif menggunakan HTML,
+                                    CSS, JavaScript, PHP, serta berbagai teknologi web lainnya.</p>
+                                <p>Selain pengembangan web, saya juga tertarik mempelajari keamanan jaringan, ethical
+                                    hacking, dan bagaimana melindungi sistem dari ancaman digital.</p>
+                                <div class="skills-grid">
+                                    <span class="skill-tag"><i class="fab fa-html5" style="color: #e34c26;"></i>
+                                        HTML5</span>
+                                    <span class="skill-tag"><i class="fab fa-css3-alt" style="color: #264de4;"></i>
+                                        CSS3</span>
+                                    <span class="skill-tag"><i class="fab fa-js" style="color: #f7df1e;"></i>
+                                        JavaScript</span>
+                                    <span class="skill-tag"><i class="fab fa-php" style="color: #777bb4;"></i>
+                                        PHP</span>
+                                    <span class="skill-tag"><i class="fas fa-shield-alt"
+                                            style="color: var(--primary);"></i> Cyber Security</span>
+                                    <span class="skill-tag"><i class="fas fa-terminal"
+                                            style="color: var(--primary);"></i> Ethical Hacking</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- IDE / PROGRAM SECTION -->
+        <section id="ide" class="section container">
+            <h2 class="section-title"><span>02.</span> Program Interaktif</h2>
+            <p class="section-desc">Tulis kode JavaScript dan lihat hasilnya langsung di dalam console.</p>
+            <div class="ide-container glass-panel">
+                <div class="panel-header">
+                    <div class="panel-dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <span class="panel-title">main.js - VS Code</span>
+                </div>
+                <div class="ide-body">
+                    <div class="ide-sidebar">
+                        <div class="ide-file active"><i class="fab fa-js text-yellow"></i> main.js</div>
+                        <div class="ide-file"><i class="fas fa-info-circle text-blue"></i> info.txt</div>
+                    </div>
+                    <div class="ide-editor">
+                        <div class="editor-lines">
+                            1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12
+                        </div>
+                        <div class="code-container">
+                            <textarea id="code-editor" spellcheck="false"
+                                oninput="updateCode(this.value); sync_scroll(this);" onscroll="sync_scroll(this);">// Data Mahasiswa
+const mahasiswa = {
+  nama: "Rizki Fahrizal Kurniawan",
+  prodi: "Teknik Informatika",
+  fakultas: "Fakultas Teknologi Informasi",
+  universitas: "Universitas Budi Luhur",
+  tentang: "Namaku Rizki Fahrizal Kurniawan"
+};
+
+console.log("Halo Guys!");
+console.log(mahasiswa.tentang + " dari " + mahasiswa.universitas);
+</textarea>
+                            <pre id="highlighting"
+                                aria-hidden="true"><code class="language-javascript" id="highlighting-content"></code></pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="ide-footer">
+                    <button id="run-code-btn" class="btn btn-primary btn-sm"><i class="fas fa-play"></i> Run
+                        Code</button>
+                    <div class="ide-console">
+                        <div class="console-header">Console Output:</div>
+                        <div id="console-output"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EDUCATION SECTION -->
+        <section id="education" class="section">
+            <h2 class="section-title"><span>03.</span> Pendidikan</h2>
+            <div class="timeline">
+                <div class="timeline-item glass-panel">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Teknik Informatika</h3>
+                        <span class="timeline-date">Universitas Budi Luhur</span>
+                        <p>Fokus pada pengembangan web, cyber security, and artificial inteligent.</p>
+                    </div>
+                </div>
+                <div class="timeline-item glass-panel">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Teknik Komputer dan Jaringan</h3>
+                        <span class="timeline-date">SMK Yadika 5</span>
+                        <p>Fokus pada dasar-dasar jaringan komputer, perakitan, dan administrasi sistem.</p>
+                    </div>
+                </div>
+                <div class="timeline-item glass-panel">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Bootcamp Cyber Security</h3>
+                        <span class="timeline-date">2023</span>
+                        <p>Pelatihan penetration testing, cryptography, dan network defense.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ACTIVITIES SECTION -->
+        <section id="activities" class="section container">
+            <div class="d-flex flex-column align-items-center text-center mb-5">
+                <h2 class="section-title m-0"><span>04.</span> Aktivitas</h2>
+                <div class="bg-primary mt-3" style="width: 60px; height: 3px; border-radius: 2px;"></div>
+            </div>
+            <div class="row g-4 text-light">
+                <div class="col-md-4">
+                    <div class="card glass-panel border-0 rounded-4 h-100 hover-lift p-4">
+                        <div class="d-flex justify-content-center mb-3">
+                            <div class="bg-primary bg-opacity-10 p-3 rounded-circle text-primary">
+                                <i class="fas fa-flag fa-2x"></i>
+                            </div>
+                        </div>
+                        <h3 class="fw-bold fs-5 text-white">Kompetisi CTF</h3>
+                        <p class="text-white-50">Aktif mengikuti Capture The Flag (CTF) dalam bidang keamanan web dan
+                            cryptography.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card glass-panel border-0 rounded-4 h-100 hover-lift p-4">
+                        <div class="d-flex justify-content-center mb-3">
+                            <div class="bg-primary bg-opacity-10 p-3 rounded-circle text-primary">
+                                <i class="fas fa-code fa-2x"></i>
+                            </div>
+                        </div>
+                        <h3 class="fw-bold fs-5 text-white">Open Source</h3>
+                        <p class="text-white-50">Berkontribusi pada proyek open-source dan pengembangan tools keamanan
+                            web.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card glass-panel border-0 rounded-4 h-100 hover-lift p-4">
+                        <div class="d-flex justify-content-center mb-3">
+                            <div class="bg-primary bg-opacity-10 p-3 rounded-circle text-primary">
+                                <i class="fas fa-chalkboard-teacher fa-2x"></i>
+                            </div>
+                        </div>
+                        <h3 class="fw-bold fs-5 text-white">Workshop Teknologi</h3>
+                        <p class="text-white-50">Berbagi ilmu dasar web development dan keamanan digital.</p>
+                    </div>
+                </div>
+                <!-- GitHub Stats -->
+                <div class="col-12">
+                    <div class="card glass-panel border-0 rounded-4 p-4 text-light">
+                        <div class="text-center mb-4">
+                            <div
+                                class="d-inline-flex justify-content-center bg-primary bg-opacity-10 p-3 rounded-circle text-primary mb-3">
+                                <i class="fab fa-github fa-2x"></i>
+                            </div>
+                            <h3 class="fw-bold fs-5 text-white">GitHub Contributions</h3>
+                            <p class="text-white-50">Statistik koding harian saya (Placeholder API)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS SECTION -->
+        <section id="projects" class="section container">
+            <div class="d-flex flex-column align-items-center text-center mb-5">
+                <h2 class="section-title m-0"><span>05.</span> Proyek Pilihan</h2>
+                <div class="bg-primary mt-3" style="width: 60px; height: 3px; border-radius: 2px;"></div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="project-card glass-panel border-0 rounded-4 h-100 hover-lift">
+                        <div class="project-img position-relative overflow-hidden">
+                            <div class="position-absolute w-100 h-100 bg-primary opacity-25"
+                                style="mix-blend-mode: overlay;"></div>
+                            <i class="fas fa-shield-alt z-1"
+                                style="transform: scale(1.2); transition: transform 0.3s;"></i>
+                        </div>
+                        <div class="project-info d-flex flex-column p-4">
+                            <h3 class="fw-bold fs-5">CyberShield Admin</h3>
+                            <p class="text-secondary">Dashboard modern untuk monitoring ancaman keamanan jaringan.</p>
+                            <a href="projects/project1.html" target="_blank"
+                                class="btn btn-outline rounded-pill mt-auto">Lihat Website <i
+                                    class="fas fa-arrow-right ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="project-card glass-panel border-0 rounded-4 h-100 hover-lift">
+                        <div class="project-img position-relative overflow-hidden">
+                            <div class="position-absolute w-100 h-100 bg-primary opacity-25"
+                                style="mix-blend-mode: overlay;"></div>
+                            <i class="fas fa-network-wired z-1"
+                                style="transform: scale(1.2); transition: transform 0.3s;"></i>
+                        </div>
+                        <div class="project-info d-flex flex-column p-4">
+                            <h3 class="fw-bold fs-5">SecureNet VPN</h3>
+                            <p class="text-secondary">Landing page modern layanan VPN dengan animasi futuristik.</p>
+                            <a href="projects/project2.html" target="_blank"
+                                class="btn btn-outline rounded-pill mt-auto">Lihat Website <i
+                                    class="fas fa-arrow-right ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="project-card glass-panel border-0 rounded-4 h-100 hover-lift">
+                        <div class="project-img position-relative overflow-hidden">
+                            <div class="position-absolute w-100 h-100 bg-primary opacity-25"
+                                style="mix-blend-mode: overlay;"></div>
+                            <i class="fab fa-bitcoin z-1"
+                                style="transform: scale(1.2); transition: transform 0.3s;"></i>
+                        </div>
+                        <div class="project-info d-flex flex-column p-4">
+                            <h3 class="fw-bold fs-5">CryptoVault</h3>
+                            <p class="text-secondary">Tampilan modern aplikasi tracking cryptocurrency dan dompet
+                                digital.</p>
+                            <a href="projects/project3.html" target="_blank"
+                                class="btn btn-outline rounded-pill mt-auto">Lihat Website <i
+                                    class="fas fa-arrow-right ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GAMES SECTION -->
+        <section id="games" class="section container">
+            <div class="d-flex flex-column align-items-center text-center mb-5">
+                <h2 class="section-title m-0"><span>06.</span> Arcade Game</h2>
+                <div class="bg-primary mt-3" style="width: 60px; height: 3px; border-radius: 2px;"></div>
+                <p class="section-desc mt-4">Mainkan mini game cyber security yang dibuat menggunakan JavaScript.</p>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-4">
+                    <div class="card glass-panel border-0 rounded-4 h-100 d-flex flex-column hover-lift p-4">
+                        <h3 class="fw-bold fs-5 text-primary mb-3"><i class="fas fa-keyboard me-2"></i> Terminal Typist
+                        </h3>
+                        <p class="text-secondary flex-grow-1">Ketik kata yang jatuh secepat mungkin.</p>
+                        <button class="btn btn-primary rounded-pill mt-auto fw-bold shadow-sm"
+                            onclick="openGame('typist')">Mainkan Sekarang</button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card glass-panel border-0 rounded-4 h-100 d-flex flex-column hover-lift p-4">
+                        <h3 class="fw-bold fs-5 text-primary mb-3"><i class="fas fa-unlock-alt me-2"></i> Password
+                            Cracker</h3>
+                        <p class="text-secondary flex-grow-1">Tebak password admin menggunakan logika.</p>
+                        <button class="btn btn-primary rounded-pill mt-auto fw-bold shadow-sm"
+                            onclick="openGame('cracker')">Mainkan Sekarang</button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card glass-panel border-0 rounded-4 h-100 d-flex flex-column hover-lift p-4">
+                        <h3 class="fw-bold fs-5 text-primary mb-3"><i class="fas fa-fire-extinguisher me-2"></i>
+                            Firewall Defense</h3>
+                        <p class="text-secondary flex-grow-1">Hancurkan ancaman merah sebelum mencapai core.</p>
+                        <button class="btn btn-primary rounded-pill mt-auto fw-bold shadow-sm"
+                            onclick="openGame('firewall')">Mainkan Sekarang</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 Rizki Fahrizal Kurniawan. Hak Cipta Dilindungi.</p>
+            <div class="socials">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL GAME -->
+    <div id="game-modal" class="modal">
+        <div class="modal-content glass-panel">
+            <span class="close-modal" onclick="closeGame()">&times;</span>
+            <div id="game-container"></div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <!-- Prism JS for Syntax Highlighting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/games.js"></script>
+    <script>
+        // Theme Switcher Logic
+        const themeBtns = document.querySelectorAll('.theme-btn');
+        themeBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const color = btn.getAttribute('data-color');
+                document.documentElement.style.setProperty('--primary', color);
+                // remove active class from all
+                themeBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            });
+        });
+
+        // Close Navbar on link click (Bootstrap)
+        document.querySelectorAll('.nav-links .nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                const navbarCollapse = document.getElementById('navbarNav');
+                if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+                    navbarCollapse.classList.remove('show');
+                }
+            });
+        });
+
+        // Editor Syntax Highlighting Logic
+        function updateCode(text) {
+            try {
+                let result_element = document.querySelector("#highlighting-content");
+                if (text[text.length - 1] == "\n") {
+                    text += " ";
+                }
+                result_element.textContent = text;
+                if (typeof Prism !== 'undefined') {
+                    Prism.highlightElement(result_element);
+                }
+            } catch (e) {
+                console.error("Highlighting error", e);
+            }
+        }
+
+        function sync_scroll(element) {
+            let result_element = document.querySelector("#highlighting");
+            result_element.scrollTop = element.scrollTop;
+            result_element.scrollLeft = element.scrollLeft;
+        }
+
+        // Initialize editor highlight
+        window.onload = function () {
+            const editor = document.getElementById('code-editor');
+            if (editor) {
+                updateCode(editor.value);
+            }
+        };
+
+        // IDE Run Logic
+        const runBtn = document.getElementById('run-code-btn');
+        const codeEditor = document.getElementById('code-editor');
+        const consoleOutput = document.getElementById('console-output');
+
+        let flagFound = false;
+
+        runBtn.addEventListener('click', () => {
+            // Fix smart quotes dari keyboard HP agar kode tidak error
+            const code = codeEditor.value
+                .replace(/[“”]/g, '"')
+                .replace(/[‘’]/g, "'");
+
+            consoleOutput.innerHTML = '';
+
+            // Easter Egg Logic
+            if (code.includes('sudo su') || code.includes('hack()')) {
+                if (!flagFound) {
+                    showToast('🚩 FLAG{root_access_granted} - Anda menemukan Flag Rahasia!');
+                    flagFound = true;
+                }
+            }
+
+            // Redirect console.log
+            const originalLog = console.log;
+            console.log = function (...args) {
+                const msg = args.map(a => typeof a === 'object' ? JSON.stringify(a) : a).join(' ');
+                consoleOutput.innerHTML += `<div>> ${msg}</div>`;
+                originalLog.apply(console, args);
+            };
+
+            try {
+                // Execute code safely
+                new Function(code)();
+                if (consoleOutput.innerHTML === '') {
+                    consoleOutput.innerHTML = '<div class="text-success">> Code executed successfully. No output.</div>';
+                }
+            } catch (err) {
+                consoleOutput.innerHTML += `<div class="text-danger">> Error: ${err.message}</div>`;
+            }
+
+            // Restore console.log
+            console.log = originalLog;
+
+            // Scroll to bottom of console
+            consoleOutput.scrollTop = consoleOutput.scrollHeight;
+        });
+
+        function closeGame() {
+            document.getElementById('game-modal').style.display = 'none';
+            document.getElementById('game-container').innerHTML = '';
+        }
+
+        // Typing text logic
+        if (!document.querySelector('#typed-text').hasAttribute('data-typed')) {
+            const text = "portofolio rizki — web developer & cyber security";
+            let i = 0;
+            const target = document.getElementById('typed-text');
+            target.innerHTML = '';
+            target.setAttribute('data-typed', 'true');
+            function typeWriter() {
+                if (i < text.length) {
+                    target.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 50);
+                }
+            }
+            setTimeout(typeWriter, 1000);
+        }
+
+        // Setup Particles
+        if (typeof particlesJS !== 'undefined') {
+            particlesJS('particles-js', {
+                "particles": {
+                    "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+                    "color": { "value": "#ffffff" },
+                    "shape": { "type": "circle" },
+                    "opacity": { "value": 0.5, "random": false },
+                    "size": { "value": 3, "random": true },
+                    "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1 },
+                    "move": { "enable": true, "speed": 2, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": { "onhover": { "enable": true, "mode": "repulse" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
+                    "modes": { "repulse": { "distance": 100, "duration": 0.4 }, "push": { "particles_nb": 4 } }
+                },
+                "retina_detect": true
+            });
+        }
+
+        // ==========================
+        // FITUR BARU: HACKER CRT MODE
+        // ==========================
+        const hackerToggle = document.getElementById('hacker-toggle');
+        hackerToggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            document.body.classList.toggle('crt-mode');
+            if (document.body.classList.contains('crt-mode')) {
+                showToast('📟 Sistem beralih ke Retro CRT Mode');
+            }
+        });
+
+        // ==========================
+        // TOAST NOTIFICATION (EASTER EGG)
+        // ==========================
+        function showToast(message) {
+            const toastContainer = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = 'cyber-toast';
+            toast.innerHTML = `<i class="fas fa-exclamation-triangle"></i> <span>${message}</span>`;
+            toastContainer.appendChild(toast);
+
+            setTimeout(() => {
+                toast.style.animation = 'slideOut 0.5s forwards';
+                setTimeout(() => toast.remove(), 500);
+            }, 4000);
+        }
+
+    </script>
+</body>
+
+</html>
