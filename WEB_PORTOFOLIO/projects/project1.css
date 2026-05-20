@@ -1,0 +1,148 @@
+/* ========================================= */
+/* MOBILE RESPONSIVE IMPROVEMENT */
+/* ========================================= */
+
+@media(max-width:768px){
+
+    body{
+        overflow-x:hidden;
+    }
+
+    /* SIDEBAR */
+    .sidebar{
+        width:100%;
+        height:auto;
+        position:relative;
+        padding:20px;
+        border-right:none;
+        border-bottom:1px solid rgba(0,255,153,0.15);
+    }
+
+    .logo{
+        text-align:center;
+        margin-bottom:25px;
+        font-size:26px;
+    }
+
+    .nav-item{
+        margin-bottom:10px;
+        text-align:center;
+        font-size:14px;
+    }
+
+    /* MAIN */
+    .main{
+        margin-left:0;
+        padding:20px;
+    }
+
+    .topbar{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:15px;
+    }
+
+    .topbar h1{
+        font-size:28px;
+        line-height:1.3;
+    }
+
+    .live-status{
+        width:100%;
+        text-align:center;
+        font-size:14px;
+    }
+
+    /* DASHBOARD GRID */
+    .dashboard-grid{
+        grid-template-columns:1fr;
+        gap:18px;
+    }
+
+    .card{
+        padding:22px;
+        border-radius:18px;
+    }
+
+    .card h3{
+        font-size:16px;
+    }
+
+    .stat{
+        font-size:34px;
+        word-break:break-word;
+    }
+
+    .small-text{
+        font-size:13px;
+        line-height:1.5;
+    }
+
+    /* TABLE */
+    .table-card{
+        overflow-x:auto;
+    }
+
+    table{
+        min-width:650px;
+    }
+
+    th,
+    td{
+        padding:12px;
+        font-size:13px;
+    }
+
+    /* TERMINAL */
+    .terminal{
+        height:auto;
+        padding:18px;
+    }
+
+    .terminal-line{
+        font-size:13px;
+        line-height:1.6;
+        word-break:break-word;
+    }
+
+}
+
+/* EXTRA SMALL DEVICE */
+
+@media(max-width:480px){
+
+    .main{
+        padding:15px;
+    }
+
+    .sidebar{
+        padding:15px;
+    }
+
+    .logo{
+        font-size:22px;
+    }
+
+    .topbar h1{
+        font-size:24px;
+    }
+
+    .card{
+        padding:18px;
+    }
+
+    .stat{
+        font-size:30px;
+    }
+
+    .nav-item{
+        padding:13px;
+        font-size:13px;
+    }
+
+    .live-status{
+        font-size:13px;
+        padding:10px;
+    }
+
+}

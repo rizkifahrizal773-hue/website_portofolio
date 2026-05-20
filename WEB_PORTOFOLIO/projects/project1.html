@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>CyberShield Admin Dashboard</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Fira Code', monospace;
+    background:#050816;
+    color:#00ff99;
+    overflow-x:hidden;
+}
+
+/* ========================================= */
+/* BACKGROUND */
+/* ========================================= */
+
+.bg-grid{
+    position:fixed;
+    inset:0;
+    background:
+        linear-gradient(rgba(0,255,150,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,255,150,0.06) 1px, transparent 1px);
+    background-size:40px 40px;
+    z-index:-2;
+}
+
+.bg-glow{
+    position:fixed;
+    width:500px;
+    height:500px;
+    background:radial-gradient(circle,#00ff9950 0%,transparent 70%);
+    top:-150px;
+    right:-100px;
+    filter:blur(50px);
+    z-index:-1;
+    animation:floatGlow 6s infinite alternate;
+}
+
+@keyframes floatGlow{
+    from{
+        transform:translateY(0px);
+    }
+    to{
+        transform:translateY(40px);
+    }
+}
+
+/* ========================================= */
+/* SIDEBAR */
+/* ========================================= */
+
+.sidebar{
+    width:260px;
+    height:100vh;
+    position:fixed;
+    left:0;
+    top:0;
+    background:rgba(10,15,25,0.95);
+    border-right:1px solid rgba(0,255,153,0.2);
+    backdrop-filter:blur(10px);
+    padding:25px;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+    color:white;
+    margin-bottom:40px;
+    text-shadow:0 0 10px #00ff99;
+}
+
+.logo span{
+    color:#00ff99;
+}
+
+.nav-item{
+    padding:15px;
+    margin-bottom:12px;
+    border-radius:12px;
+    cursor:pointer;
+    transition:0.3s;
+    border:1px solid transparent;
+    color:#8effcb;
+}
+
+.nav-item:hover{
+    background:rgba(0,255,153,0.1);
+    border:1px solid rgba(0,255,153,0.4);
+    transform:translateX(5px);
+    color:white;
+    box-shadow:0 0 15px rgba(0,255,153,0.2);
+}
+
+/* ========================================= */
+/* MAIN */
+/* ========================================= */
+
+.main{
+    margin-left:260px;
+    padding:30px;
+}
+
+.topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+}
+
+.topbar h1{
+    color:white;
+    font-size:34px;
+}
+
+.live-status{
+    padding:10px 18px;
+    border-radius:50px;
+    background:rgba(0,255,153,0.1);
+    border:1px solid rgba(0,255,153,0.4);
+    color:#00ff99;
+    animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+    0%{
+        box-shadow:0 0 0 rgba(0,255,153,0.5);
+    }
+    50%{
+        box-shadow:0 0 20px rgba(0,255,153,0.5);
+    }
+    100%{
+        box-shadow:0 0 0 rgba(0,255,153,0.5);
+    }
+}
+
+/* ========================================= */
+/* CARDS */
+/* ========================================= */
+
+.dashboard-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:rgba(15,20,35,0.85);
+    border:1px solid rgba(0,255,153,0.15);
+    border-radius:20px;
+    padding:25px;
+    position:relative;
+    overflow:hidden;
+    transition:0.4s;
+    backdrop-filter:blur(12px);
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    border-color:#00ff99;
+    box-shadow:0 0 25px rgba(0,255,153,0.15);
+}
+
+.card::before{
+    content:"";
+    position:absolute;
+    width:120px;
+    height:120px;
+    background:rgba(0,255,153,0.08);
+    border-radius:50%;
+    top:-40px;
+    right:-40px;
+}
+
+.card h3{
+    color:#ffffff;
+    margin-bottom:20px;
+    font-size:18px;
+}
+
+.stat{
+    font-size:40px;
+    font-weight:bold;
+    color:#00ff99;
+}
+
+.alert{
+    color:#ff3366;
+}
+
+.small-text{
+    margin-top:10px;
+    color:#8aa;
+    font-size:14px;
+}
+
+/* ========================================= */
+/* CHART AREA */
+/* ========================================= */
+
+.chart-card{
+    margin-top:25px;
+}
+
+.chart{
+    display:flex;
+    align-items:flex-end;
+    gap:15px;
+    height:220px;
+    margin-top:25px;
+}
+
+.bar{
+    flex:1;
+    background:linear-gradient(to top,#00ff99,#00ccff);
+    border-radius:10px 10px 0 0;
+    position:relative;
+    animation:growBar 1.2s ease;
+}
+
+.bar span{
+    position:absolute;
+    bottom:-30px;
+    left:50%;
+    transform:translateX(-50%);
+    color:#ccc;
+    font-size:12px;
+}
+
+@keyframes growBar{
+    from{
+        height:0;
+    }
+}
+
+/* ========================================= */
+/* TABLE */
+/* ========================================= */
+
+.table-card{
+    margin-top:30px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+}
+
+th{
+    color:white;
+    padding:15px;
+    text-align:left;
+    background:rgba(255,255,255,0.03);
+}
+
+td{
+    padding:15px;
+    border-bottom:1px solid rgba(255,255,255,0.05);
+}
+
+tr{
+    transition:0.3s;
+}
+
+tr:hover{
+    background:rgba(0,255,153,0.05);
+}
+
+.status-blocked{
+    color:#ff3366;
+    font-weight:bold;
+}
+
+.status-monitored{
+    color:#ffcc00;
+    font-weight:bold;
+}
+
+.status-safe{
+    color:#00ff99;
+    font-weight:bold;
+}
+
+/* ========================================= */
+/* TERMINAL */
+/* ========================================= */
+
+.terminal{
+    margin-top:30px;
+    background:#02040a;
+    border-radius:20px;
+    border:1px solid rgba(0,255,153,0.2);
+    padding:20px;
+    height:220px;
+    overflow:hidden;
+    position:relative;
+}
+
+.terminal::before{
+    content:"LIVE TERMINAL";
+    color:#00ff99;
+    display:block;
+    margin-bottom:15px;
+}
+
+.terminal-line{
+    margin-bottom:10px;
+    opacity:0;
+    animation:fadeIn 0.5s forwards;
+}
+
+.terminal-line:nth-child(1){ animation-delay:0.5s; }
+.terminal-line:nth-child(2){ animation-delay:1s; }
+.terminal-line:nth-child(3){ animation-delay:1.5s; }
+.terminal-line:nth-child(4){ animation-delay:2s; }
+
+@keyframes fadeIn{
+    to{
+        opacity:1;
+    }
+}
+
+/* ========================================= */
+/* RESPONSIVE */
+/* ========================================= */
+
+@media(max-width:900px){
+
+    .sidebar{
+        width:100%;
+        height:auto;
+        position:relative;
+    }
+
+    .main{
+        margin-left:0;
+    }
+
+    .dashboard-grid{
+        grid-template-columns:1fr;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="bg-grid"></div>
+<div class="bg-glow"></div>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+
+    <div class="logo">
+        Cyber<span>Shield</span>
+    </div>
+
+    <div class="nav-item">⚡ Dashboard</div>
+    <div class="nav-item">🛡 Threat Logs</div>
+    <div class="nav-item">🌐 Network Monitor</div>
+    <div class="nav-item">🔥 Firewall Rules</div>
+    <div class="nav-item">⚙ System Settings</div>
+
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+    <div class="topbar">
+
+        <h1>System Overview</h1>
+
+        <div class="live-status">
+            ● SYSTEM ONLINE
+        </div>
+
+    </div>
+
+    <!-- CARDS -->
+<div class="dashboard-grid">
+
+    <div class="card">
+        <h3>Total Requests</h3>
+
+        <div 
+            class="stat counter"
+            data-target="1200000">
+            0
+        </div>
+
+        <div class="small-text">
+            +18% from yesterday
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Active Threats</h3>
+
+        <div 
+            class="stat alert counter"
+            data-target="42">
+            0
+        </div>
+
+        <div class="small-text">
+            12 Critical Alerts
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Nodes Online</h3>
+
+        <div 
+            class="stat counter"
+            data-target="156">
+            0
+        </div>
+
+        <div class="small-text">
+            All systems operational
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Firewall Efficiency</h3>
+
+        <div 
+            class="stat counter"
+            data-target="98"
+            data-suffix="%">
+            0%
+        </div>
+
+        <div class="small-text">
+            AI Protection Active
+        </div>
+    </div>
+
+</div>
+
+    <!-- TABLE -->
+    <div class="card table-card">
+
+        <h3>Recent Attack Vectors</h3>
+
+        <table>
+
+            <tr>
+                <th>Timestamp</th>
+                <th>IP Address</th>
+                <th>Attack Type</th>
+                <th>Status</th>
+            </tr>
+
+            <tr>
+                <td>2026-05-17 14:32</td>
+                <td>192.168.1.45</td>
+                <td>SQL Injection</td>
+                <td class="status-blocked">BLOCKED</td>
+            </tr>
+
+            <tr>
+                <td>2026-05-17 14:30</td>
+                <td>10.0.0.99</td>
+                <td>DDoS Attempt</td>
+                <td class="status-monitored">MONITORED</td>
+            </tr>
+
+            <tr>
+                <td>2026-05-17 14:28</td>
+                <td>172.16.0.5</td>
+                <td>XSS Payload</td>
+                <td class="status-blocked">BLOCKED</td>
+            </tr>
+
+            <tr>
+                <td>2026-05-17 14:20</td>
+                <td>45.32.18.11</td>
+                <td>Port Scanning</td>
+                <td class="status-safe">NEUTRALIZED</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+    <!-- TERMINAL -->
+    <div class="terminal">
+
+        <div class="terminal-line">
+            > Initializing CyberShield AI...
+        </div>
+
+        <div class="terminal-line">
+            > Firewall Protocol Loaded
+        </div>
+
+        <div class="terminal-line">
+            > Threat Detection Activated
+        </div>
+
+        <div class="terminal-line">
+            > Monitoring Global Traffic...
+        </div>
+
+    </div>
+
+</div>
+<script>
+
+
+/* ========================================= */
+/* COUNTING ANIMATION */
+/* ========================================= */
+
+function animateCounter(el, target, duration = 2000, suffix = '') {
+
+    let start = 0;
+    let startTime = null;
+
+    function update(currentTime) {
+
+        if (!startTime) startTime = currentTime;
+
+        const progress = Math.min(
+            (currentTime - startTime) / duration,
+            1
+        );
+
+        const current = Math.floor(
+            progress * (target - start) + start
+        );
+
+        /* FORMAT JUTAAN */
+        if (target >= 1000000) {
+
+            el.innerText =
+                (current / 1000000).toFixed(1) +
+                'M' +
+                suffix;
+
+        } else {
+
+            el.innerText =
+                current.toLocaleString() +
+                suffix;
+        }
+
+        if (progress < 1) {
+            requestAnimationFrame(update);
+        }
+    }
+
+    requestAnimationFrame(update);
+}
+
+/* ========================================= */
+/* START ANIMATION */
+/* ========================================= */
+
+window.addEventListener('load', () => {
+
+    const counters = document.querySelectorAll('.counter');
+
+    counters.forEach(counter => {
+
+        const target = Number(
+            counter.getAttribute('data-target')
+        );
+
+        const suffix =
+            counter.getAttribute('data-suffix') || '';
+
+        animateCounter(
+            counter,
+            target,
+            2200,
+            suffix
+        );
+
+    });
+
+});
+
+</script>
+</body>
+</html>
